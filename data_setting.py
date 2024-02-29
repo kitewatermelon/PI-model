@@ -55,21 +55,21 @@
 # # 2. unlabeled 폴더로 이미지 옮기기
 # move_to_unlabeled(data_folder, unlabeled_folder, 0.9)
 
-from PIL import Image
-import os
+# from PIL import Image
+# import os
 
-def remove_srgb_profile(folder_path):
-    for subdir, dirs, files in os.walk(folder_path):
-        for file in files:
-            file_path = os.path.join(subdir, file)
-            try:
-                img = Image.open(file_path)
-                img.save(file_path, icc_profile="")
-            except Exception as e:
-                print(f"Error processing {file_path}: {e}")
+# def remove_srgb_profile(folder_path):
+#     for subdir, dirs, files in os.walk(folder_path):
+#         for file in files:
+#             file_path = os.path.join(subdir, file)
+#             try:
+#                 img = Image.open(file_path)
+#                 img.save(file_path, icc_profile="")
+#             except Exception as e:
+#                 print(f"Error processing {file_path}: {e}")
 
-# 폴더 경로 설정
-data_folder = "C:/Users/Administrator/MAI-Lab/PI-model/pokemon"
+# # 폴더 경로 설정
+# data_folder = "C:/Users/Administrator/MAI-Lab/PI-model/pokemon"
 
-# sRGB 프로필 제거
-remove_srgb_profile(data_folder)
+# # sRGB 프로필 제거
+# remove_srgb_profile(data_folder)
