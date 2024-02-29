@@ -10,6 +10,7 @@ from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
 from tensorflow.keras import layers, models, optimizers
 from tensorflow.keras.losses import MeanSquaredError
+import time
 
 
 image_height, image_width, num_channels = 255,255,3
@@ -116,6 +117,8 @@ def supervised_learning_with_stochastic_augmentation_data():
     history_graph(history)
 
 def kkk(train_dataset1, validation_data):
+    start = time.time()
+
     # 두 모델 생성
     model1 = build_model()
     model2 = build_model()
@@ -177,12 +180,13 @@ def kkk(train_dataset1, validation_data):
     predictions2_final = model2(validation_data)
     final_mse = mse_loss(predictions1_final, predictions2_final).numpy()
     print("Final MSE between predictions of Model1 and Model2:", final_mse)
-
+    end = time.time()
+    print("걸린 시간 :", end - start)
     
 # supervised_learning_with_raw_data()
 # supervised_learning_with_stochastic_augmentation_data()
 
-# kkk(train_lds, val_lds)
+kkk(train_lds, val_lds)
     
 print(train_lds.samples)
 i = 1
